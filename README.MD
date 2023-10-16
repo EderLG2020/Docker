@@ -54,4 +54,4 @@ MYSQL:
 - `use Base1 `: Usar la base de datos.
 
 DEMO:
-![Imagen Terminado gif](https://i.ibb.co/dgMX41y/2023-10-14-23-38-43.gif)
+![Imagen](https://i.ibb.co/dgMX41y/2023-10-14-23-38-43.gif)
