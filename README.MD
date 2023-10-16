@@ -41,6 +41,7 @@ CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
 - `docker cp D:/Opera/my.cnf projectMysql:/etc/my.cnf ` : Configurando
 
 - `docker network create mynetwork` : Creando una red 0b482c3f2e648abb4d7ccb76efce22acaaedfd0e8ccae418c2bbf6eb90e7a007
+- `docker run --name mymongo -p 27017:27017 mongo` : Creando
 
 MYSQL:
 
@@ -51,3 +52,6 @@ MYSQL:
 - `create table user (id int PRIMARY KEY); `: Crea una tabla
 - `describe user `: Muestra la tabla.
 - `use Base1 `: Usar la base de datos.
+
+DEMO:
+![Imagen Terminado gif](https://i.ibb.co/dgMX41y/2023-10-14-23-38-43.gif)
