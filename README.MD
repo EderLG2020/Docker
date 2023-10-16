@@ -22,36 +22,95 @@
 
 ## Comandos de Docker:
 
+### Iniciar un Contenedor
+
 - `docker run hola-mundo`: Ejecuta un contenedor con la imagen "hola-mundo".
+
+### Descargar una Imagen
+
 - `docker pull mysql`: Descarga la imagen de MySQL desde el registro de Docker.
-- `docker images`: Puedo ver las imagenes que se descargo.
-- `docker run -e MYSQL_ROOT_PASSWORD=eder --name mymysql mysql `: Descarga la imagen de MySQL desde el registro de Docker.
-- `docker exec -it mymysql bash `: Descarga la imagen de MySQL desde el registro de Docker.
-- `docker run --name otrabasemysql -p 7777:3306 -e MYSQL_ROOT_PASSWORD=eder12 mysql `: Crea otra base de datos con otra contraseña correspondiente.
-- `docker ps `: Puedo ver todos los procesos ejecutandose.
 
-CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES  
-77b34546ef27 mysql "docker-entrypoint.s…" 49 seconds ago Up 48 seconds 33060/tcp, 0.0.0.0:7777->3306/tcp otrabasemysql
-8c7a027ac412 mysql "docker-entrypoint.s…" 16 minutes ago Up 16 minutes 3306/tcp, 33060/tcp mymysql
+### Listar Imágenes
 
-- `docker run --name projectMysql -p 3306:7777 -e MYSQL_ROOT_PASSWORD=eder mysql`: Crea una nueva pero necesito saber su direccion ip ya que de manera local no esta corriendo
-- `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' projectMysql` : Me da la direccion -> 172.17.0.2
+- `docker images`: Muestra una lista de las imágenes Docker que se han descargado.
 
-- `docker restart projectMysql ` : Reinicia
-- `docker cp D:/Opera/my.cnf projectMysql:/etc/my.cnf ` : Configurando
+### Iniciar un Contenedor MySQL
 
-- `docker network create mynetwork` : Creando una red 0b482c3f2e648abb4d7ccb76efce22acaaedfd0e8ccae418c2bbf6eb90e7a007
-- `docker run --name mymongo -p 27017:27017 mongo` : Creando
+- `docker run -e MYSQL_ROOT_PASSWORD=eder --name mymysql mysql`: Inicia un contenedor MySQL con una contraseña específica.
 
-MYSQL:
+- `docker exec -it mymysql bash`: Accede al contenedor MySQL para realizar tareas de administración.
 
-- `mysql -u root -p `: Ingresar a mysql.
-- `show databases `: Ver las bases de datos.
-- `create database Base1 `: Ver las bases de datos.
-- `use Base1 `: Usar la base de datos.
-- `create table user (id int PRIMARY KEY); `: Crea una tabla
-- `describe user `: Muestra la tabla.
-- `use Base1 `: Usar la base de datos.
+### Crear una Segunda Base de Datos MySQL
 
-DEMO:
+- `docker run --name otrabasemysql -p 7777:3306 -e MYSQL_ROOT_PASSWORD=eder12 mysql`: Crea una segunda base de datos MySQL con una contraseña diferente.
+
+### Listar Contenedores en Ejecución
+
+- `docker ps`: Muestra una lista de todos los contenedores en ejecución junto con detalles como ID, imagen y puertos.
+
+### Detalles de los Contenedores en Ejecución
+
+| CONTAINER ID | IMAGE | COMMAND              | CREATED        | STATUS        | PORTS                             | NAMES         |
+| ------------ | ----- | -------------------- | -------------- | ------------- | --------------------------------- | ------------- |
+| 77b34546ef27 | mysql | docker-entrypoint.sh | 49 seconds ago | Up 48 seconds | 33060/tcp, 0.0.0.0:7777->3306/tcp | otrabasemysql |
+| 8c7a027ac412 | mysql | docker-entrypoint.sh | 16 minutes ago | Up 16 minutes | 3306/tcp, 33060/tcp               | mymysql       |
+
+### Reiniciar un Contenedor MySQL
+
+- `docker restart projectMysql`: Reinicia un contenedor MySQL.
+
+### Configurar MySQL
+
+- `docker cp D:/Opera/my.cnf projectMysql:/etc/my.cnf`: Copia un archivo de configuración personalizado a un contenedor MySQL.
+
+### Crear una Red Docker
+
+- `docker network create mynetwork`: Crea una red Docker personalizada.
+
+### Iniciar un Contenedor de MongoDB
+
+- `docker run --name mymongo -p 27017:27017 mongo`: Inicia un contenedor de MongoDB y expone el puerto 27017.
+
+### Crear una Imagen Personalizada
+
+- `docker build -t nodeprueba .`: Crea una imagen personalizada llamada "nodeprueba" a partir de un Dockerfile en el directorio actual.
+
+### Escanear Vulnerabilidades de una Imagen
+
+- `docker scout cves nodeprueba`: Escanea una imagen Docker llamada "nodeprueba" en busca de vulnerabilidades conocidas.
+
+### Ver Recomendaciones para una Imagen
+
+- `docker scout recommendations nodeprueba`: Muestra recomendaciones de seguridad para la imagen "nodeprueba".
+
+### Iniciar una Aplicación Node.js
+
+- `docker run --name server1 -p 5000:4000 nodeprueba`: Inicia una aplicación Node.js en un contenedor y la expone en el puerto 5000.
+
+### Etiquetar una Imagen
+
+- `docker tag nodeprueba:latest ederlg/dockerpractica:tagname`: Etiqueta la imagen "nodeprueba" con una etiqueta personalizada.
+
+### Subir una Imagen a un Repositorio
+
+- `docker push ederlg/dockerpractica:tagname`: Sube una imagen etiquetada a un repositorio de Docker.
+
+### Trabajar con MySQL
+
+- `mysql -u root -p`: Ingresa a MySQL.
+
+- `show databases`: Muestra una lista de bases de datos en MySQL.
+
+- `create database Base1`: Crea una nueva base de datos en MySQL.
+
+- `use Base1`: Cambia al contexto de la base de datos "Base1".
+
+- `create table user (id int PRIMARY KEY);`: Crea una tabla llamada "user" con una columna "id" en la base de datos.
+
+- `describe user`: Muestra la estructura de la tabla "user".
+
+- `use Base1`: Cambia al contexto de la base de datos "Base1".
+
+## Demo
+
 ![Imagen](https://i.ibb.co/dgMX41y/2023-10-14-23-38-43.gif)

@@ -4,14 +4,13 @@
   "description": "1. **Contenedorización:** Docker utiliza tecnologías de contenedorización para empaquetar aplicaciones y sus dependencias en contenedores. Un contenedor es una unidad ligera y autónoma que incluye todo lo necesario para que una aplicación se ejecute, como código, bibliotecas, entorno de tiempo de ejecución y variables de entorno. Los contenedores se ejecutan de manera aislada y consistente en cualquier entorno que admita Docker.",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.6.2",
-    "mysql2": "^3.6.2"
+    "express": "^4.18.2"
   }
 }
